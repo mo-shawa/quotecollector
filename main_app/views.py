@@ -7,10 +7,10 @@ class Quote:
     
 
 quotes = [
-    Quote('David Goggins', "WHO'S GONNA CARRY THE BOATS AND THE LOGS??"),
     Quote('Kendrick Lamar', "I always thought it was me against the world, and then one day I realized it's just me against me."),
     Quote('Unknown', 'Hard times create strong men. Strong men create easy times. Easy times create weak men. Weak men create hard times.'),
-    Quote('Jordan Peterson', 'When you have something to say, silence is a lie.')
+    Quote('Unknown', 'When you have something to say, silence is a lie.'),
+    Quote('David Goggins', "WHO'S GONNA CARRY THE BOATS"),
 ]
 
 # Create your views here.
