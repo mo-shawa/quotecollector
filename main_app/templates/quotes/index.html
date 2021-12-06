@@ -1,16 +1,16 @@
-{%extends 'base.html'%}
-{%block content%}
+{%extends 'base.html'%} {%block content%}
 
 <h1>Quotes list</h1>
+<a href="/quotes/new"><button class="btn">+ Quote</button></a>
 
 {% for quote in quotes %}
 <div class="card">
-    <div class="card-content">
-        <span class="card-title">{{quote.quote}}</span>
-        <p>- {{quote.author}}</p>
-    </div>
+	<a href="/quotes/{{quote.id}}">
+		<div class="card-content">
+			<span class="card-title">{{quote.quote}}</span>
+			<p>- {{quote.author}}</p>
+		</div>
+	</a>
 </div>
 
-{%endfor%}
-
-{%endblock%}
+{%endfor%} {%endblock%}
