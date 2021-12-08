@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.views.generic.edit import UpdateView
 from .models import Quote
 from django.views.generic import ListView, CreateView, DeleteView
-
+from .forms import FanForm
 
 # Create your views here.
 
@@ -19,7 +19,8 @@ def quotes_index(request):
 
 def quotes_detail(request, quote_id):
     quote = Quote.objects.get(id=quote_id)
-    return render(request,'quotes/detail.html',{'quote': quote
+    fan_form = FanForm()
+    return render(request,'quotes/detail.html',{'quote': quote, 'fan_form': fan_form
     })
 
 class QuoteCreate(CreateView):

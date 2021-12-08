@@ -1,10 +1,52 @@
 {%extends 'base.html'%} {% block content %}
 
-<h1>{{quote.author}}</h1>
 
-<h4>{{quote.quote}}</h4>
+<h1>Quote Details</h1>
 
-<a class ='btn' href="{% url 'quote_update' quote.id%}">Edit</a>
-<a class='btn' href="{% url 'quote_delete' quote.id%}">Delete</a>
+<div class="row">
+  <div class="col s6">
+    <div class="card">
+      <div class="card-content">
+        <span class="card-title">{{ quote.author }}</span>
+        <h4>{{ quote.quote }}</h4>
+      </div>
+      <div class="card-action">
+        <a href="{% url 'quote_update' quote.id %}">Edit</a>
+        <a href="{% url 'quote_delete' quote.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <form method="post">
+        {% csrf_token %}
+        {{ fan_form.as_p }}
+        <input type="submit" class="btn" value="Add Fan">
+      </form>
+    <table class="striped">
+      <thead>
+        <tr><th>Name</th><th>Date</th><th>Fan tier</th></tr>
+      </thead>
+      <tbody>
+        {% for fan in quote.fan_set.all %}
+          <tr>
+            <td>{{fan.name}}</td>
+            <td>{{fan.date}}</td>
+            <td>{{fan.get_fantype_display}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+  var dateEl = document.getElementById('id_date');
+  M.Datepicker.init(dateEl, {
+    format: 'yyyy-mm-dd',
+    defaultDate: new Date(),
+    setDefaultDate: true,
+    autoClose: true
+  })
+</script>
 
 {%endblock%}
