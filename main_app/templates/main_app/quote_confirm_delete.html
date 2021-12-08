@@ -1,0 +1,13 @@
+{%extends 'base.html'%}
+
+{% block content %} 
+<h1>Delete Quote?</h1>
+<h4>But <span class="blue-text">{{object.quote}}</span> is such a cool quote :/</h4>
+
+<form action="" method="post">
+    {%csrf_token%} 
+    <input type="submit" value="Yes" class="btn">
+    <a href="{% url 'detail' quote.id %}">Cancel</a>
+</form>
+
+{%endblock%}
