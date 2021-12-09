@@ -9,4 +9,5 @@ urlpatterns = [
     path('quotes/new/', views.QuoteCreate.as_view(), name='create'),
     path('quotes/<int:pk>/update', views.QuoteUpdate.as_view(), name='quote_update'),
     path('quotes/<int:pk>/delete', views.QuoteDelete.as_view(), name='quote_delete'),
+    path('quotes/<int:quote_id>/add_fan/', views.add_fan, name='add_fan')
 ]

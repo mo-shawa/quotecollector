@@ -31,3 +31,6 @@ class Fan(models.Model):
 
     def __str__(self):
        return f"{self.get_fantype_display()} {self.name} on {self.date}"
+    
+    class Meta:
+        ordering = ['-fantype']

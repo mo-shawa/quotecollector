@@ -4,4 +4,4 @@ from .models import Fan
 class FanForm(ModelForm):
     class Meta:
         model = Fan
-        fields = '__all__'
+        fields = ['name', 'date', 'fantype']
