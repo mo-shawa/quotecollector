@@ -1,0 +1,9 @@
+{%extends 'base.html'%}
+{%block content%} 
+
+{% for quote in quotes %}
+<h1>{{quote.quote}}</h1>
+
+{%endfor%}
+
+{%endblock%}

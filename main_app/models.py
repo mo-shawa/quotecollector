@@ -9,9 +9,20 @@ FANTYPES =(
 
 # Create your models here.
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+    
+    def get_absolute_url(self):
+        return reverse('cats_detail', kwargs={'pk': self.id})
+
+
 class Quote(models.Model):
     quote = models.TextField()
     author = models.CharField(max_length=150)
+    categories = models.ManyToManyField(Category)
 
     def __str__(self):
         return self.quote
@@ -34,3 +45,5 @@ class Fan(models.Model):
     
     class Meta:
         ordering = ['-fantype']
+
+

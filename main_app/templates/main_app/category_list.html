@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %} 
+<h1>Quote Categories</h1>
+
+{% for cat in category_list %}
+    <a href="{% url 'cat_detail' cat.id %}">
+        <div class="card">
+            <div class="card-content"> <span class="card-title">{{cat.name}}</span></div>
+        </div>
+    </a>
+
+{% endfor %}
+
+{% endblock %}
