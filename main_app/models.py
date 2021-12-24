@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 FANTYPES =(
     ('C', 'Casual'),
@@ -23,6 +24,7 @@ class Quote(models.Model):
     quote = models.TextField()
     author = models.CharField(max_length=150)
     categories = models.ManyToManyField(Category)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.quote

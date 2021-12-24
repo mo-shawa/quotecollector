@@ -13,6 +13,8 @@ urlpatterns = [
     path('quotes/<int:quote_id>/assoc_cat/<int:cat_id>/', views.assoc_cat, name='assoc_cat'),
     path('categories/', views.CatList.as_view(), name='cat_list'),
     path('categories/<int:pk>/', views.CatDetail.as_view(), name='cat_detail'),
-    path('categories/create/', views.CatCreate.as_view(), name='cat_create')
+    path('categories/create/', views.CatCreate.as_view(), name='cat_create'),
+    path('accounts/signup/', views.signup, name='signup'),
+
 
 ]
